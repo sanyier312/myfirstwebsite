@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <link rel="shortcut icon" href="https://www.3body.com/favicon.ico" >
+    <link rel="stylesheet" href="../static/register.css">
+    <script src="../static/register.js"></script>
+</head>
+<body>
+   
+        <div class="topnav">
+            <a href="../view/index.html"><img src="../static/imgs/st_logo.png" alt=""></a>
+            <a class="active" href="../view/index.html">主页</a>
+            <a href="#about">关于</a>
+            <a href="#contact">联系我们</a>
+            <div class="search-container">
+              <form >
+                <input type="text" placeholder="搜索.." name="search">
+                <button type="submit">提交</button>
+              </form>
+            </div>
+            <div class="user-container">
+                <a href="login.html">登录</a><a href="" class="re">注册</a>
+            </div>
+          </div>
+
+        </div>
+        <div class="main">
+            <div class="left">
+               
+            </div>
+            <div class="right">
+              <div class="rb">
+                <div class="rh">
+                    <span >注册</span>
+                
+                </div>
+                <div class="rf">
+                    <form  action="http://localhost:7080/user/rg" method="post">
+                      <div class="b">
+                        <span>请设置你的用户名</span>
+                
+                    </div>
+                        <input type="text" class="in" id="id" name="username">
+                        <div class="t1" id="h0">
+
+                        </div>
+                        <div class="b" >
+                            <span>请输入你的邮箱</span>
+                    
+                        </div>
+                            <input type="text" class="in" id="em" name="email">
+                            <div class="t1" id="h1">
+                              
+                            </div>
+                         <div class="b">
+                                <span>请输入密码</span>
+                            </div>
+                            <input type="password" class="in" id="ps" name="password">
+                        <div class="t2" id="h2">
+                                
+                        </div>
+                        <div class="b">
+                          <span>请再次输入密码</span>
+                      </div>
+                      <input type="password" class="in" id="pss">
+                  <div class="t2" id="h3">
+                          
+                  </div>
+                        <div class="b">
+                                <span>请输入验证码</span>
+                        </div>
+                            <input type="text" class="in" id="input">
+                            <input type="button" id="code" onclick="createCode()"  title='点击更换验证码' /> 
+
+
+                        <div class="t3" id="h4">
+                                 
+                         </div>
+                         <div class="b">
+                            <input type="checkbox" id="tk"  checked="checked">
+                            我同意
+                            <a href="#"><span>使用条款</span></a>
+                            和
+                            <a href="#"><span>隐私政策</span></a>
+                         </div>
+                         <div class="b">
+                          <input type="checkbox">
+                          获取最新资讯信息
+                         </div>
+                         <input type="button" value="注册" class="in" id="bt" onclick="f()">
+                         
+                         
+                    </form>
+                </div>
+                <div class="rd">
+                  <div class="b">
+                    <span>已有账号？<a href="login.html"><span>登录</span></a></span>
+                 </div>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        <div class="footer">
+          <div class="l">
+            <span>新手制作多多包涵</span>
+          </div>
+          <div class="c">
+            <a href=""><span>使用条款</span></a>
+            <a href=""><span>隐私政策</span></a>
+            <a href=""><span>内容指引</span></a>
+          </div>
+          <div class="r">
+            <a href=""><span>友情链接</span></a>
+            
+          </div>
+        </div>
+
+        
+    
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录三体世界</title>
+     <link rel="shortcut icon" href="https://www.3body.com/favicon.ico" >
+    <link rel="stylesheet" href="../static/login.css">
+<script src="../static/login.js"></script>
+   
+</head>
+<body>
+    
+        <div class="topnav">
+            <a href="../view/index.html"><img src="../static/imgs/st_logo.png" alt=""></a>
+            <a class="active" href="../view/index.html">主页</a>
+            <a href="#about">关于</a>
+            <a href="#contact">联系我们</a>
+            <div class="search-container">
+              <form >
+                <input type="text" placeholder="搜索.." name="search">
+                <button type="submit">提交</button>
+              </form>
+            </div>
+            <div class="user-container">
+                <a href="" class="login">登录</a><a href="register.html">注册</a>
+            </div>
+          </div>
+
+        </div>
+        <div class="main">
+            <div class="left">
+               
+            </div>
+            <div class="right">
+                <div class="rb">
+                    <div class="rh">
+                        <span >登录</span>
+                    
+                    </div>
+                    <div class="rf" >
+                        <form action="http://localhost:7080/user/lg" method="post">
+                            <div class="b">
+                                <label>请输入你的邮箱</label>
+                        
+                            </div>
+                                <input type="text" class="in" id="em" name="email">
+                                <div class="t1" id="h1">
+                                    
+                                </div>
+                             <div class="b" >
+                                    <label>请输入密码</label>
+                                </div>
+                                <input type="password" class="in" id="ps" name="password">
+                            <div class="t2" id="h2">
+                                    
+                            </div>
+                            <div class="b">
+                                    <label>请输入验证码</label>
+                            </div>
+                                <input type="text" class="in" id="input">
+                                <input type="button" id="code" onclick="createCode()"  title='点击更换验证码' /> 
+                               
+
+                            <div class="t3" id="h3">
+                                     
+                             </div>
+                             <div class="b">
+                                <input type="checkbox">
+                                <span>记住账号</span>
+                                <a href="register.html"><span>忘记密码？</span></a>
+                             </div>
+                             <input type="button" value="登录" class="in" id="bt" onclick="f()">
+                             <div class="b">
+                                <span>还没有账号？<a href="register.html"><span>注册</span></a></span>
+                             </div>
+                             
+                        </form>
+                    </div>
+                    <div class="rd">
+                        <div class="dh">其他方式登录</div>
+                        <div class="p">
+                            <a href="https://wx.qq.com/" target="_blank"><span><img src="../static/imgs/wl.png" alt="微信登录"></span></a>
+                            <a href="https://im.qq.com/index" target="_blank"><span><img src="../static/imgs/ql.png" alt="QQ登录"></span></a>
+                            <a href="https://passport.weibo.cn/signin/login" target="_blank"><span><img src="../static/imgs/wbl.png" alt="微博登录"></span></a>
+                            
+                            <span><img src="" alt=""></span>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+        <div class="footer">
+            <div class="l">
+                <span>新手制作多多包涵 </span>
+              </div>
+              <div class="c">
+                <a href=""><span>使用条款</span></a>
+                <a href=""><span>隐私政策</span></a>
+                <a href=""><span>内容指引</span></a>
+              </div>
+              <div class="r">
+                <a href=""><span>友情链接</span></a>
+                
+              </div>
+        </div>
+       
+        
+    
+</body>
+</html>

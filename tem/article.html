@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:javascript="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="shortcut icon" href="https://www.3body.com/favicon.ico" >
+    <link rel="stylesheet" href="../static/ad.css">
+</head>
+<style>
+    h1 {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    input[type=text], input[type=date] {
+        width: 250px;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+    }
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+    }
+    .mb{
+        margin-top: 80px;
+    }
+
+</style>
+<script >
+    function edit()
+    {
+        var pname = document.getElementById("tt").innerText;
+        document.getElementById("epn").value=pname;
+        var n =document.getElementById("uid").innerText;
+        document.getElementById("ename").value=n;
+
+    }
+    function de(){
+        var dt = document.getElementById("tt").innerText;
+        document.getElementById("dpn").value=dt;
+    }
+</script>
+<body>
+<div class="topnav">
+    <a href="../view/index.html"><img src="../static/imgs/st_logo.png" alt=""></a>
+    <a class="active" href="#home">主页</a>
+    <a href="#about">探索</a>
+    <a href="#contact">想象</a>
+    <div class="search-container">
+        <form >
+            <input type="text" placeholder="搜索.." name="search">
+            <button type="submit">提交</button>
+        </form>
+    </div>
+    <div class="user-container">
+        <a href="#" id="uid">{{.username}}</a><a href="javascript:history.back(-1)">回到主页</a>
+    </div>
+</div>
+<div class="mb">
+    <h1 style="text-align: center">文章管理</h1>
+
+    <table>
+        <caption>文章列表</caption>
+        <thead>
+        <tr>
+            <th>题目</th>
+            <th>作者</th>
+            <th>时间</th>
+            <th>种类</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        {{ range $idx,$v := .article}}
+
+        <tr>
+            
+
+            <td id="tt">{{$v.Title}}</td>
+
+            <td>{{$v.Author}}</td>
+
+            <td>{{$v.Time}}</td>
+
+            <td>{{$v.Category}}</td>
+
+            <td>
+
+                <form action="http://localhost:7080/edit" method="post">
+
+                    <input type="hidden" name="ename" id="ename">
+
+                    <input type="hidden" name="epn" id="epn">
+
+                    <button type="submit" onclick="edit()" >修改</button>
+
+                </form>
+
+                <form action="http://localhost:7080/delete" method="post">
+
+                    <input type="hidden" name="dpn" id="dpn">
+
+                    <button type="submit" onclick="de()" >删除</button>
+
+                </form>
+
+            </td>
+
+        </tr>
+
+        {{end}}
+
+        </tbody>
+    </table>
+
+
+
+    <form action="http://localhost:7080/art" method="post">
+        <h3 style="text-align: center">添加文章</h3>
+        <div style="text-align: center">
+            <label >题目:</label>
+            <input type="text" name="title" />
+        </div>
+        <div style="text-align: center">
+            <label>作者:</label>
+            <input type="text" name="author" />
+        </div>
+
+        <div style="text-align: center">
+            <label>种类:</label>
+            <input type="text" name="category" />
+        </div>
+        <div>
+            <label>正文:</label>
+            <textarea name="content" style="width: 1200px; height: 250px"></textarea>
+        </div>
+        <div style="text-align: center">
+            <button type="submit" >提交</button>
+        </div>
+
+    </form>
+</div>
+
+
+</body>
+</html>

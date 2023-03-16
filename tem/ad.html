@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户主页</title>
+    <link rel="shortcut icon" href="https://www.3body.com/favicon.ico" >
+    <link rel="stylesheet" href="../static/ad.css">
+    <script src="../static/ad.js"></script>
+    <script>
+        function hi()
+        {
+            var qname = document.getElementById('uid').innerText
+            document.getElementById("qname").value = qname
+            var g =  document.forms[0];
+            g.submit();
+
+        }
+
+    </script>
+</head>
+<body>
+    
+        <div class="topnav">
+            <a href="../view/index.html"><img src="../static/imgs/st_logo.png" alt=""></a>
+            <a class="active" href="#home">主页</a>
+            <a href="#about">探索</a>
+            <a href="#contact">想象</a>
+            <div class="search-container">
+              <form action="http://localhost:7080/qr" method="post">
+                <input type="text" placeholder="搜索.." name="search">
+                  <input type="hidden" name="qname" id="qname" >
+                <button type="submit" onclick="hi()">提交</button>
+              </form>
+            </div>
+            <div class="user-container">
+                <a href="#" id="uid">{{.username}}</a><a href="http://localhost:63342/lastproject/view/index.html?_ijt=qmv8mmb6n31qlojncjsldahkpv&_ij_reload=RELOAD_ON_SAVE">{{.exit}}</a>
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="side">
+              <h2>关于三体</h2>
+              <h5>刘慈欣著系列科幻小说</h5>
+              <div class="fakeimg" style="height:200px;"><img src="../static/imgs/book.jfif" alt=""></div>
+              <p>《三体》是刘慈欣创作的长篇科幻小说系列，由《三体》《三体2：黑暗森林》《三体3：死神永生》组成，第一部于2006年5月起在《科幻世界》杂志上连载，第二部于2008年5月首次出版，第三部则于2010年11月出版。
+                作品讲述了地球人类文明和三体文明的信息交流、生死搏杀及两个文明在宇宙中的兴衰历程。其第一部经过刘宇昆翻译后获得了第73届雨果奖最佳长篇小说奖。</p>
+              <h3>三体相关</h3>
+              <p>更多内容敬请期待</p>
+              <div class="fakeimg" style="height:60px;"><a href=""><img src="../static/imgs/a1.jpg" alt=""></a></div><br>
+              <div class="fakeimg" style="height:60px;"><img src="../static/imgs/a2.jpg" alt=""></div><br>
+              <div class="fakeimg" style="height:60px;"><img src="../static/imgs/a3.jpg" alt=""></div><br>
+              <div class="fakeimg" style="height:60px;"><img src="../static/imgs/a4.jpg" alt=""></div><br>
+              <div class="fakeimg" style="height:60px;"><img src="../static/imgs/a5.jpg" alt=""></div><br>
+              <div class="fakeimg" style="height:60px;"><img src="../static/imgs/a6.jpg" alt=""></div><br>
+              <div class="fakeimg" style="height:60px;"><img src="../static/imgs/a5.jpg" alt=""></div><br>
+              <div class="fakeimg" style="height:60px;"><img src="../static/imgs/a4.jpg" alt=""></div><br>
+              <div class="fakeimg" style="height:60px;"><img src="../static/imgs/a3.jpg" alt=""></div><br>
+              <div class="fakeimg" style="height:60px;"><img src="../static/imgs/a2.jpg" alt=""></div><br>
+              <div class="fakeimg" style="height:60px;"><img src="../static/imgs/a1.jpg" alt=""></div><br>
+              <div class="fakeimg" style="height:60px;"><img src="../static/imgs/a4.jpg" alt=""></div><br>
+              <div class="fakeimg" style="height:60px;"><img src="../static/imgs/a2.jpg" alt=""></div><br>
+              <div class="fakeimg" style="height:60px;"><img src="../static/imgs/a3.jpg" alt=""></div><br>
+              <div class="fakeimg" style="height:60px;"><img src="../static/imgs/a5.jpg" alt=""></div><br>
+              <div class="fakeimg" style="height:60px;"><img src="../static/imgs/a1.jpg" alt=""></div><br>
+              <div class="fakeimg" style="height:60px;"><img src="../static/imgs/a6.jpg" alt=""></div><br>
+              
+
+          </div>
+
+          <div class="main">
+              <div class="tool" id="sg">
+                  <form action="http://localhost:7080/ar" method="post">
+                      <input type="hidden" name="aname" id="aname">
+                      <input type="button" onclick="k()" value="管理文章">
+
+                  </form>
+
+              </div>
+              {{range $i,$s := .article}}
+
+                  <div class="line">
+
+                  </div>
+                  <h1 style="text-align: center">{{$s.Title}}</h1>
+                    <h3 style="text-align: center">作者：{{$s.Author}} <span></span> 类别：{{$s.Category}}</h3>
+                  <div class="fakeimg" style="height:200px;"><img src="../static/imgs/bg.jpg" alt=""></div>
+                  <textarea name="" id="hid1"  rows="20" readonly="readonly" >
+               {{$s.Content}}
+              </textarea>
+                 <div style="padding-left: 650px;color: #999999"> 发布于：{{$s.Time}}</div>
+                  {{end}}
+                  <span><img src="../static/imgs/re.png" alt=""></span><button id="bp1" onclick="h1()">评论</button>
+                  <span><img src="../static/imgs/wr.png" alt=""></span><button onclick=" return f1()" id="wr1">编辑</button>
+                  <span><img src="../static/imgs/lk.png" alt=""></span><button onclick=" g1()" id="l1">喜欢</button>
+                  <span><img src="../static/imgs/sa.png" alt=""></span><button onclick="j()">分享</button>
+                  <br>
+
+                  <div class="hh">
+                      <form id="td1" style="display: none;" action="http://localhost:7080/ad" method="post">
+                          <textarea name="comment" id="pl1"  rows="2" placeholder="发表你的看法" ></textarea>
+                          <input type="submit" onclick="i()" value="提交">
+                          <input type="hidden" id="name" name="name">
+
+                          <div >
+                              <h2>评论区</h2>
+                              <hr>
+                              {{ range $idx,$v := .comment}}
+                              <div >
+                                  <div style="padding-left:30px ">
+                                      <h3>{{ $v.Username }}</h3>
+                                  </div>
+                                  <div style="padding-left: 80px">
+                                      {{ $v.Comment }}
+                                  </div>
+                                  <div style="padding-left: 700px;  color: #999999 " >
+                                      -- {{ $v.CreatedTime}}
+                                  </div>
+
+                                  <hr>
+                              </div>
+                              {{end}}
+
+                          </div>
+                      </form>
+
+                  </div>
+
+
+                
+               
+              
+              
+
+        </div>
+        <div class="footer">
+          <div class="l">
+            <span>新手制作多多包涵 </span>
+          </div>
+          <div class="c">
+            <a href=""><span>使用条款</span></a>
+            <a href=""><span>隐私政策</span></a>
+            <a href=""><span>内容指引</span></a>
+          </div>
+          <div class="r">
+            <a href="https://www.3body.com/home.html" target="_blank"><span>友情链接</span></a>
+            
+          </div>
+        </div>
+        
+    
+  </body>
+</html>
